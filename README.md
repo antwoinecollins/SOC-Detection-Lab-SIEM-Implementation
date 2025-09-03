@@ -37,7 +37,8 @@ index=win_log | stats count by sourcetype
 This proves logs are being received from the forwarder into Splunk.
 **Sanitization Note**: Hostnames/IPs were anonymized.
 
-*Screenshot: `screenshots/log_ingestion_confirmation.png`*
+**Screenshot: Log Ingestion Confirmation**  
+![Log Ingestion Confirmation](https://github.com/antwoinecollins/SOC-Detection-Lab-SIEM-Implementation/blob/main/Log_Ingestion_Confirmation.jpg?raw=true)*
 
 **Ref 3:** Windows Event Log Forwarding
 
