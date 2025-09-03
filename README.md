@@ -39,7 +39,7 @@ This proves logs are being received from the forwarder into Splunk.
 **Sanitization Note**: Hostnames/IPs were anonymized.
 
 **Screenshot: Log Ingestion Confirmation**  
-![Log Ingestion Confirmation](https://github.com/)*
+![Log Ingestion Confirmation](https://github.com/antwoinecollins/SOC-Detection-Lab-SIEM-Implementation/blob/main/Errors_Warnings_Breakdown_by_Source.jpg?raw=true)*
 
 **Ref 3:** Windows Event Log Forwarding
 
