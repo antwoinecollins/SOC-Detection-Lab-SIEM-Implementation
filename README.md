@@ -26,7 +26,8 @@ This screenshot shows the architecture setup, including the Universal Forwarder 
 
 **Sanitization Note**: IP addresses and hostnames have been replaced with generic placeholders.
 
-*Screenshot: `screenshots/architecture_overview.png`*
+**Screenshot: Architecture Overview**
+![Architecture Overview](https://github.com/antwoinecollins/SOC-Detection-Lab-SIEM-Implementation/blob/main/Splunk_System_Log_Volume_by_Source.jpg?raw=true)*
 
 **Ref 2:** Log Ingestion Confirmation
 **SPL Query:**
