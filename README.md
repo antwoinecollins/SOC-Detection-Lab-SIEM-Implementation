@@ -100,8 +100,8 @@ connection_host = ip
 
 If you’re a recruiter, engineer, or mentor interested in SIEM, detection engineering, or blue team practices, feel free to connect:
 
-* 🔗 [LinkedIn Profile](http://www.linkedin.com/in/antwoinecollins?raw=true))
-* 💻 [GitHub Portfolio](#)
+* 🔗 [LinkedIn Profile](http://www.linkedin.com/in/antwoinecollins?raw=true)
+* 💻 [GitHub Portfolio](https://github.com/antwoinecollins?raw=true)
 
 ---
 
