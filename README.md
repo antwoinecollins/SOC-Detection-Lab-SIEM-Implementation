@@ -1,29 +1,103 @@
 # SOC-Detection-Lab – SIEM Implementation
 
 ## Objective
-The SIEM Implementation project focused on building and configuring a Security Information and Event Management (SIEM) environment to ingest, normalize, and analyze logs.  
-The goal was to gain hands-on experience in real-time monitoring, alerting, and threat detection.
+The goal of this project was to build and configure a working Security Information and Event Management (SIEM) solution using **Splunk Enterprise** and **Splunk Universal Forwarder** in a home lab environment.  
+The project focused on ingesting Windows Event Logs, validating log flow, and creating alerts/dashboards for real-time detection.
 
 ## Skills Learned
 - Configured log ingestion pipelines for multiple sources
 - Built correlation rules and custom alerts
 - Analyzed logs to detect anomalous behaviors
-- Applied MITRE ATT&CK techniques to test detections
+- How to configure and validate a Universal Forwarder in a SIEM lab
+- How to troubleshoot connection issues (firewall, ports, services)
+- Gained experience writing SPL queries for log analysis and alerting
+- Learned the importance of sanitizing sensitive details before publishing results
 - Developed critical thinking for real-world security incidents
 
 ## Tools Used
-- Microsoft Sentinel
-- Splunk
-- Elastic Stack
-- Wireshark
-- PowerShell (for log simulation)
+| **Splunk Enterprise** | Central SIEM platform for log analysis |
+| **Splunk Universal Forwarder** | Agent for collecting and forwarding logs |
+| **Windows Event Logs** | Data source (Security, System, Application) |
+| **PowerShell / Admin CMD** | Used for configuration and troubleshooting |
 
 ## Steps / Screenshots
-**Ref 1:** SIEM Architecture Overview  
-![Screenshot1](imgsrc)
+**Ref 1:** SIEM Architecture Overview
+This screenshot shows the architecture setup, including the Universal Forwarder sending logs over TCP port 9997 to Splunk Enterprise.
 
-**Ref 2:** Ingesting Windows and Linux logs  
-![Screenshot2](imgsrc)
+**Sanitization Note**: IP addresses and hostnames have been replaced with generic placeholders.
 
-**Ref 3:** Alert configuration and testing  
-![Screenshot3](imgsrc)
+*Screenshot: `screenshots/architecture_overview.png`*
+
+**Ref 2:** Log Ingestion Confirmation
+**SPL Query:**
+```spl
+index=win_log | stats count by sourcetype
+````
+
+This proves logs are being received from the forwarder into Splunk.
+**Sanitization Note**: Hostnames/IPs were anonymized.
+
+*Screenshot: `screenshots/log_ingestion_confirmation.png`*
+
+**Ref 3:** Windows Event Log Forwarding
+
+This screenshot shows successful ingestion of **Security**, **System**, and **Application** logs into the `win_log` index.
+
+*Screenshot: `screenshots/windows_eventlogs.png`*
+
+**Ref 4:** Alert Configuration & Testing
+
+An alert was created for **failed login attempts** (EventCode 4625). This simulates detection of brute-force or unauthorized access attempts.
+
+**SPL Query:**
+
+```spl
+index=win_log sourcetype=WinEventLog:Security EventCode=4625
+| stats count by Account_Name, host
+| where count > 3
+```
+
+🖼️ *Screenshot: `screenshots/failed_login_alert.png`*
+
+## ⚙️ Configuration Summary
+
+### Universal Forwarder (outputs.conf)
+
+```conf
+[tcpout]
+defaultGroup = default-autolb-group
+
+[tcpout:default-autolb-group]
+server = <RedactedIP>:9997
+
+[tcpout-server://<RedactedIP>:9997]
+```
+
+### Splunk Enterprise (inputs.conf)
+
+```conf
+[splunktcp://9997]
+connection_host = ip
+```
+
+👉 **Sanitization Note**: IP addresses have been redacted.
+
+## 📦 Future Improvements
+
+* Add Sysmon for deeper endpoint telemetry
+* Expand to Linux log ingestion
+* Build dashboards aligned with MITRE ATT\&CK detections
+* Automate alerts for brute-force and privilege escalation scenarios
+
+---
+
+## 🤝 Connect
+
+If you’re a recruiter, engineer, or mentor interested in SIEM, detection engineering, or blue team practices, feel free to connect:
+
+* 🔗 [LinkedIn Profile](#)
+* 💻 [GitHub Portfolio](#)
+
+---
+
+*Note: All sensitive details (IP addresses, hostnames, usernames) have been sanitized for confidentiality.*
