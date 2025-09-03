@@ -38,13 +38,14 @@ This proves logs are being received from the forwarder into Splunk.
 **Sanitization Note**: Hostnames/IPs were anonymized.
 
 **Screenshot: Log Ingestion Confirmation**  
-![Log Ingestion Confirmation](https://github.com/antwoinecollins/SOC-Detection-Lab-SIEM-Implementation/blob/main/Log_Ingestion_Confirmation.jpg?raw=true)*
+![Log Ingestion Confirmation](https://github.com/)*
 
 **Ref 3:** Windows Event Log Forwarding
 
 This screenshot shows successful ingestion of **Security**, **System**, and **Application** logs into the `win_log` index.
 
-*Screenshot: `screenshots/windows_eventlogs.png`*
+**Screenshot: Windows Event Logs**
+![Windows Event Log](https://github.com/antwoinecollins/SOC-Detection-Lab-SIEM-Implementation/blob/main/Log_Ingestion_Confirmation.jpg?raw=true)*
 
 **Ref 4:** Alert Configuration & Testing
 
