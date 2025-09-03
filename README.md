@@ -59,7 +59,8 @@ index=win_log sourcetype=WinEventLog:Security EventCode=4625
 | where count > 3
 ```
 
-🖼️ *Screenshot: `screenshots/failed_login_alert.png`*
+**Screenshot: `Failed Login Alert**
+![Failed Login Alert](https://github.com/antwoinecollins/SOC-Detection-Lab-SIEM-Implementation/blob/main/Splunk_Errors_In_Last_Hour.jpg?raw=true)*
 
 ## ⚙️ Configuration Summary
 
